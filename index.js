@@ -7,7 +7,7 @@ const loadPhotos = () => {
     method: "GET",
 
     headers: {
-      Authorization: "563492ad6f9170000100000103d029e54f944cb4934d839adc4be886",
+      Authorization: "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
     },
   })
     .then((response) => response.json())
@@ -58,7 +58,7 @@ const secondPhotos = () => {
     method: "GET",
 
     headers: {
-      Authorization: "563492ad6f9170000100000103d029e54f944cb4934d839adc4be886",
+      Authorization: "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
     },
   })
     .then((response) => response.json())
@@ -107,19 +107,21 @@ const secondPhotos = () => {
 };
 
 firstButton.addEventListener("click", () => {
+    container.innerHTML=""
   loadPhotos();
 });
 
 secondButton.addEventListener("click", () => {
+    container.innerHTML=""
   secondPhotos();
 });
 
-// let hideCard = (event) => {
-//     let card =
-//       event.target.parentElement.parentElement.parentElement.parentElement
-//         .parentElement;
-//     card.remove()
-// }
+let hideCard = (event) => {
+    let card =
+      event.target.parentElement.parentElement.parentElement.parentElement
+        .parentElement;
+    card.remove()
+}
 
 // function hideCard(event) {
 //     let buttonRow = event.target.parentElement
@@ -132,8 +134,12 @@ secondButton.addEventListener("click", () => {
 
 const search = document.getElementById("search-button");
 
-const seachImages = () => {
+
+
+const searchImages = () => {
+    
   search.addEventListener("click", () => {
+    container.innerHTML=""
     let input = document.getElementById("input").value;
     
     
@@ -142,16 +148,16 @@ const seachImages = () => {
 
       headers: {
         Authorization:
-          "563492ad6f9170000100000103d029e54f944cb4934d839adc4be886",
+          "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
       },
     })
       .then((response) => response.json())
       .then((data) => {
         const photos = data.photos;
 
+        
+
         for (img of photos) {
-           
-          console.log(input);
 
           container.innerHTML += `<div class="col-md-4">
         <div class="card mb-4 shadow-sm">
@@ -196,5 +202,37 @@ const seachImages = () => {
   });
  
 };
-seachImages();
+        
+      
+searchImages();
+
+
+const carouselImage1 = document.querySelector(".item1 > img")
+const carouselImage2 = document.querySelector(".item2 > img")
+const carouselImage3 = document.querySelector(".item3 > img")
+fetch(`https://api.pexels.com/v1/search?query=forest`, {
+      method: "GET",
+
+      headers: {
+        Authorization:
+          "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const photos = data.photos;
+
+       
+            for(img of photos){
+                
+       
+            carouselImage1.src=`${photos[3].src.landscape}`
+            carouselImage2.src=`${photos[1].src.landscape}`
+            carouselImage3.src=`${photos[2].src.landscape}`
+            }
+       
+       }
+        
+      );
+      
 
