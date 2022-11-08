@@ -150,6 +150,7 @@ const seachImages = () => {
         const photos = data.photos;
 
         for (img of photos) {
+           
           console.log(input);
 
           container.innerHTML += `<div class="col-md-4">
@@ -187,10 +188,13 @@ const seachImages = () => {
           </div>
         </div>
       </div>`;
+
+     
         }
         
       });
   });
-  input.innerHTML=""
+ 
 };
 seachImages();
+
