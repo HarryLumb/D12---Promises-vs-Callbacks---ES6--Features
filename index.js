@@ -7,7 +7,7 @@ const loadPhotos = () => {
     method: "GET",
 
     headers: {
-      Authorization: "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
+      Authorization: "563492ad6f9170000100000163ca56a2f775463ca2ba20a3215545e2",
     },
   })
     .then((response) => response.json())
@@ -58,7 +58,7 @@ const secondPhotos = () => {
     method: "GET",
 
     headers: {
-      Authorization: "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
+      Authorization: "563492ad6f9170000100000163ca56a2f775463ca2ba20a3215545e2",
     },
   })
     .then((response) => response.json())
@@ -148,7 +148,7 @@ const searchImages = () => {
 
       headers: {
         Authorization:
-          "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
+          "563492ad6f9170000100000163ca56a2f775463ca2ba20a3215545e2",
       },
     })
       .then((response) => response.json())
@@ -215,7 +215,7 @@ fetch(`https://api.pexels.com/v1/search?query=forest`, {
 
       headers: {
         Authorization:
-          "563492ad6f9170000100000152f7122672c04ef3ba206b47af3e92dc",
+          "563492ad6f9170000100000163ca56a2f775463ca2ba20a3215545e2",
       },
     })
       .then((response) => response.json())
